@@ -1,0 +1,22 @@
+.container{
+    height: 70%;
+}
+
+.sos{
+    height: 40%;
+    border-radius: 125px;
+    font-size: 70px;
+}
+.maps{
+    display: flex;
+    justify-content: center;
+}
+.maps1{
+    display: flex;
+  justify-content: center;
+}
+.load{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

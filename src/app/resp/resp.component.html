@@ -1,0 +1,63 @@
+
+<div class="container">
+      
+
+      <div style="position: absolute; margin-left: 50%; top: 0; margin-top: 5%;" *ngIf=this.resetBtn>
+        <button type="button" class="btn btn-primary btn-block" (click)="reset()">Reset</button>
+        <button type="button" class="btn btn-primary btn-block" (click)="home()">Home</button>
+
+      </div>
+
+  <div class="box">
+
+    <mat-table matSort [dataSource]="dataSource">
+
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef class="table-title" style="flex: 0.7;justify-content: left;">
+          Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index" class="trainer-table-data"
+                  style="flex: 0.4;justify-content: left; cursor: pointer;">
+          {{element.name}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="distance">
+        <mat-header-cell *matHeaderCellDef class="table-title" style="flex:0.9;justify-content: space-around;">
+          Distance
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index" class="trainer-table-data"
+                  style="flex:0.25;justify-content: left;white-space: break-word;">
+          {{element.conn_id}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="table-title" style="flex:1;justify-content: space-around;">
+          View
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index" class="trainer-table-data"
+                  style="flex:0.25;justify-content: left;white-space: break-word;">
+          <mat-icon (click)= "gotoMap()" style="cursor: pointer;">map</mat-icon>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="accept">
+        <mat-header-cell *matHeaderCellDef class="table-title" style="flex: 0.8;justify-content: space-around;">
+          Accept
+        </mat-header-cell>
+        <mat-cell style="flex: 0.3;justify-content: left;white-space: break-word;"
+                  *matCellDef="let element; let i = index" class="trainer-table-data-traing-no">
+                  <button type="button" class="btn btn-success btn-sm" (click)=accepted(element.name)>Accept</button>
+  
+                </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+
+
+</div>
+

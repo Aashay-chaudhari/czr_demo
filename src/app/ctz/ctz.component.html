@@ -1,0 +1,31 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<div class="container" style="margin-top:10%" *ngIf=!this.loading>
+    <h1 style="text-align: center; margin-bottom: 8%;">Welcome {{username | titlecase }}</h1>
+    <div class="maps">
+    <button class="btn btn-danger btn-block p-5 sos" style="margin-bottom: 6%; width: 80%" (click)= "send()">SOS</button>
+    </div>  
+    <div class="maps1">
+        <button class="btn btn-outline-info" style="width: 30%;" (click)="toMaps()">Maps</button>
+
+    </div>
+        
+
+
+</div>
+<div style="height: 100%; background-color: #dee9ff;" *ngIf=this.loading>
+  <div style="text-align: center; padding-top:5%">
+    <h1>Waiting for Responder to Accept</h1>
+  </div>
+  <div class="container load">
+    <div class="spinner-border" role="status" *ngIf=this.loading style="width: 5rem; height: 5rem;" >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div style="display:flex; justify-content: center;">
+    <button type="button" class="btn btn-outline-dark" disabled>Cancel</button>
+  </div>
+</div>
+
